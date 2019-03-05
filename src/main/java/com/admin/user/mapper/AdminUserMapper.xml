@@ -32,5 +32,8 @@
       (#{userName},#{password},#{email},#{phone},#{sex},#{level})
     </insert>
 
+    <delete id="delUser">
+        delete from user where userid = #{userId}
+    </delete>
 
 </mapper>

@@ -8,4 +8,5 @@ public interface AdminUserMapper {
     int addUser(AdminUser adminUser);
     AdminUser getAdminUser(@Param("userId")String userId, @Param("password")String password);
     AdminUser selectAll();
+    int delUser(String userId);
 }

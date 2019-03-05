@@ -11,4 +11,6 @@ public interface AdminUserService {
     ResultData addUser(AdminUser user);
 //    boolean updateUserPassword(AdminUser user);
     ResultData getAdminUser(String userId, String password);
+
+    void addTest(AdminUser adminUser);
 }

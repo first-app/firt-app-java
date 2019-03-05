@@ -3,7 +3,9 @@ package com.admin.user.controller;
 import com.admin.user.ResultBean.ResultData;
 import com.admin.user.dao.AdminUser;
 import com.admin.user.service.AdminUserService;
+import com.admin.user.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +15,8 @@ public class AdminUserController {
 
     @Autowired
     private AdminUserService adminUserService;
+    @Autowired
+    private DemoService demoService;
 
     @RequestMapping("/test")
     public Object getTest(){
@@ -33,6 +37,18 @@ public class AdminUserController {
     @RequestMapping("/loginAdmin")
     public Object loginAdmin(String userId,String password){
         return adminUserService.getAdminUser(userId,password);
+    }
+
+    @Transactional
+    public Object demo(){
+        demoService.addUserRequired("1");
+        try {
+            demoService.delUserRequiredNew("1");
+        }catch (Exception e){
+
+        }
+
+        return null;
     }
     
 }
